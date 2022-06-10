@@ -20,7 +20,7 @@ end='2022-05-14'
 
 st.title('Ztockify' )
 
-ticker_list = pd.read_csv(r"C:\Users\91766\OneDrive\Desktop\SMP\T5STOCKS.txt")
+ticker_list = pd.read_csv(r"C:\Users\91766\OneDrive\Desktop\SMP\T3STOCKS.txt")
 user_input = st.selectbox('Stock ticker', ticker_list)
 df=pdr.DataReader(user_input,'yahoo',start,end)
 
