@@ -1,6 +1,5 @@
 from fileinput import close
 from ipaddress import summarize_address_range
-from turtle import color, width
 import tensorflow as tf
 import pandas as pd
 import pandas_datareader as pdr
