@@ -152,7 +152,7 @@ days_pred=np.arange(201,251)
 df2=dfc.tolist()
 df2.extend(lst_output)
 df2=scaler.inverse_transform(df2).tolist()
-lst=[item for item in range(1, 1309)]
+lst=[item for item in range(1, 1310)]
 df2=pd.DataFrame(df2,columns=["Price"])
 df2["Time"]=lst
 chart=alt.Chart(df2).mark_line().encode(x="Time",y="Price",tooltip=["Time","Price"])
