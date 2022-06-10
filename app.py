@@ -136,8 +136,7 @@ while(i<50):
         lst_output.extend(yhat.tolist())
         i=i+1
     else:
-        x_input=x_input.reshape(1,-1)
-        # x_input=x_input.reshape((1,n_steps,1))
+        x_input=x_input.reshape((None,n_steps,1))
         yhat=model.predict(x_input,verbose=0)
         print(yhat[0])
         temp_list.extend(yhat[0].tolist())
