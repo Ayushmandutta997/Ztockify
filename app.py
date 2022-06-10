@@ -114,7 +114,7 @@ plt.legend(['Original'],loc="upper left")
 st.pyplot(fig2)
 
 #Previous 200 Days data
-x_input=test_data[241:].reshape(1,-1)
+x_input=test_data[240:].reshape(1,-1)
 temp_list=list(x_input)
 temp_list=temp_list[0].tolist()
 
@@ -136,7 +136,7 @@ while(i<50):
         lst_output.extend(yhat.tolist())
         i=i+1
     else:
-        x_input=x_input.reshape((None,n_steps,1))
+        x_input=x_input.reshape((-1,n_steps,1))
         yhat=model.predict(x_input,verbose=0)
         print(yhat[0])
         temp_list.extend(yhat[0].tolist())
