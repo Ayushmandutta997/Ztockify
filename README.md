@@ -23,7 +23,7 @@ LSTM could not process a single data point. it needs a sequence of data for proc
  
  ![Stock_tickeranddescription](images/Stock_tickeranddescription.JPG)
  
-  - **Data loaded using yfinance | Closing price vs Time chart**
+  - **Data loaded | Closing price vs Time chart**
  
  ![Dataandpricechart](images/Dataandpricechart.JPG)
  
