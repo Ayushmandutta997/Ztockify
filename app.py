@@ -1,3 +1,4 @@
+#Importing Libraries
 from fileinput import close
 from ipaddress import summarize_address_range
 import tensorflow as tf
@@ -13,12 +14,12 @@ from keras.layers import LSTM
 import streamlit as st
 import yfinance as yf
 import altair as alt
-
+#Start and End Dates on which Data will be loaded
 start='2017-05-18'
 end='2022-05-14'
 
 st.title('Ztockify' )
-
+#Importing Data
 ticker_list = pd.read_csv("T5STOCKS.txt")
 user_input = st.selectbox('Stock ticker', ticker_list)
 df=pdr.DataReader(user_input,'yahoo',start,end)
