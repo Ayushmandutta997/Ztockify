@@ -1,5 +1,5 @@
 # Ztockify and its Applications
-Ztockify is a web application which predicts stock price predictor. It is trained using Long Short Term Memory(LSTMs)
+Ztockify is a web application which predicts stock prices. It is trained using Long Short Term Memory(LSTMs)
 On past 200 days stock to predict next 50 days stock prices. Stock Price Prediction using machine learning helps you discover the future value of company stock and other financial assets traded on an exchange. The entire idea of predicting stock prices is to gain significant profits. Predicting how the stock market will perform is a hard task to do. There are other factors involved in the prediction, such as physical and psychological factors, rational and irrational behavior, and so on. All these factors combine to make share prices dynamic and volatile. This makes it very difficult to predict stock prices with high accuracy. 
 
 [Website Link](https://ztockify.herokuapp.com/)
