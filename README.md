@@ -7,7 +7,16 @@ On past 200 days stock to predict next 50 days stock prices. Stock Price Predict
 # Algorithm and Feature Selection
 LSTM could not process a single data point. it needs a sequence of data for processing and able to store historical information. LSTM is an appropriate algorithm to make prediction and process based-on time-series data. It’s better to work on the regression problem. The stock market has enormously historical data that varies with trade date, which is time-series data, but the LSTM model predicts future price of stock within a short-time period with higher accuracy when the dataset has a huge amount of data. Since closing price determinies the loses, gains and tells about overall performance of the company o that day it is the best feature to consider. 
 
-
+# Technologies Used
+ - pandas_datareader for extracting stock data
+ - yfinance for company information
+ - numpy for mathematical calculations
+ - pandas for handling dataframe
+ - matplotlib for plotting graphs
+ - tensorflow-cpu and keras for importing sequential models
+ - scikit_learn for model implementations
+ - streamlit for frontend design
+ - altair for displaying predictions
 # Overview
 
  - **Stock Ticker and Company Description**
