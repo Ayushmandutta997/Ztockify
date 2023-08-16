@@ -2,7 +2,6 @@ from fileinput import close
 from ipaddress import summarize_address_range
 import tensorflow as tf
 import pandas as pd
-import pandas_datareader as pdr
 import matplotlib.pyplot as plt
 import numpy as np
 from tensorflow import keras
@@ -13,27 +12,47 @@ from keras.layers import LSTM
 import streamlit as st
 import yfinance as yf
 import altair as alt
+import requests
 
-start='2017-05-18'
-end='2022-05-14'
+start='2018-08-08'
+end='2023-08-09'
 
 st.title('Ztockify' )
 
 ticker_list = pd.read_csv("T5STOCKS.txt")
 user_input = st.selectbox('Stock ticker', ticker_list)
-df=pdr.DataReader(user_input,'yahoo',start,end)
+df= yf.Ticker(user_input).history(interval='1d',start=start,end=end)
 
 #Ticker Information
-tickerdata=yf.Ticker(user_input)
-logo='<img src=%s>' % tickerdata.info['logo_url']
-name=tickerdata.info['longName']
-summary=tickerdata.info['longBusinessSummary']
+def get_company_info(ticker):
+    api_key = "LPC88VSO8Z3Q922C"
+    url = f"https://www.alphavantage.co/query?function=OVERVIEW&symbol={ticker}&apikey={api_key}"
+    
+    response = requests.get(url)
+    data = response.json()
+
+    if "Name" in data:
+        company_name = data["Name"]
+    else:
+        company_name = "Company name not found"
+
+    if "Description" in data:
+        company_summary = data["Description"]
+    else:
+        company_summary = "Company summary not found"
+
+    return {
+        "Company Name": company_name,
+        "Company Summary": company_summary,
+    }
+company_info = get_company_info(user_input)
+name=company_info["Company Name"]
+summary=company_info["Company Summary"]
 
 #Describing Data
-st.markdown(logo,unsafe_allow_html=True)
 st.header('**%s**'%name)
 st.write(summary,color='y')
-st.subheader('Data from June 2017 - June 2022')
+st.subheader('Data from August 2018 - August 2023')
 st.write(df.describe())
 
 #Visulaizations
@@ -81,9 +100,9 @@ X_train,y_train=datasetmatrix(train_data,time_step)
 X_test,y_test=datasetmatrix(test_data,time_step)    
 
 #Load my model
-user_input=user_input+'.h5'
-model=load_model(user_input)
-
+user_input=user_input+'.keras'
+model=load_model(user_input,compile=False)
+model.compile(loss='mean_absolute_error',optimizer='adam')
 #Testing Part
 train_predict=model.predict(X_train)
 test_predict=model.predict(X_test)
@@ -145,17 +164,17 @@ while(i<50):
         i=i+1 
   
 #Plotting next 50 days
-st.subheader('Next 50 days predictions')
+st.subheader('Graph with next 50 days predictions [1260 - 1310]')
 #fig3=plt.figure(figsize=(12,6))
 days_200=np.arange(1,201)
 days_pred=np.arange(201,251)
 df2=dfc.tolist()
 df2.extend(lst_output)
 df2=scaler.inverse_transform(df2).tolist()
-lst=[item for item in range(1, 1308)]
+lst=[item for item in range(1, 1310)]
 df2=pd.DataFrame(df2,columns=["Price"])
 df2["Time"]=lst
-chart=alt.Chart(df2).mark_line().encode(x="Time",y="Price",tooltip=["Time","Price"])
+chart=alt.Chart(df2[1200:]).mark_line().encode(x="Time",y="Price",tooltip=["Time","Price"])
 st.altair_chart(chart,use_container_width=True)
 #plt.plot(df2)  
 #plt.xlabel("Time")
