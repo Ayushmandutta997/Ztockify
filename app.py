@@ -173,7 +173,7 @@ df2.extend(lst_output)
 df2=scaler.inverse_transform(df2).tolist()
 lst=[item for item in range(1, 1310)]
 df2=pd.DataFrame(df2,columns=["Price"])
-df2["Time"]=lst
+df2["Time"]=pd.Series(lst)
 chart=alt.Chart(df2[1200:]).mark_line().encode(x="Time",y="Price",tooltip=["Time","Price"])
 st.altair_chart(chart,use_container_width=True)
 #plt.plot(df2)  
