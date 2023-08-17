@@ -22,16 +22,16 @@ LSTM could not process a single data point. it needs a sequence of data for proc
 
  - **Stock Ticker and Company Description**
  
- ![Data And Company Info](images/Data And Company Info.jpg)
+ ![Data And Company Info](images/DataAndCompanyInfo.jpg)
  
-  - **Data loaded using yfinance | Closing price vs Time chart**
+  - **Closing price vs Time chart**
  
- ![Closing Price Of Stock Vs Time](images/Closing Price Of Stock Vs Time.jpg)
+ ![Closing Price Of Stock Vs Time](images/ClosingPriceOfStockVsTime.jpg)
  
-   - **Moving averages | Predictions on trained data**
+   - **Moving averages**
  
- ![MVPVgraphs](images/MVPVgraphs.JPG)
+ ![100Daysand200DaysMovingAverages](images/100Daysand200DaysMovingAverages.jpg)
 
    - **Predictions on next 50 days**
  
- ![Predictions](images/Predictions.JPG)
+ ![Predictions](images/Next50DaysPreditionsGraph.jpg)
