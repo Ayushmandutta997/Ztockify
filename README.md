@@ -34,4 +34,4 @@ LSTM could not process a single data point. it needs a sequence of data for proc
 
    - **Predictions on next 50 days**
  
- ![Predictions](images/Next50DaysPreditionsGraph.jpg)
+ ![Next50DaysPreditionsGraph](images/Next50DaysPreditionsGraph.jpg)
